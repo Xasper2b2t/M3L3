@@ -61,6 +61,11 @@ def submit_form():
     address = request.form['address']
     date = request.form['date']
     email = request.form['email']
+    with open('form.txt', 'a',) as f:
+            f.write(name +'\n')
+            f.write(address+'\n')
+            f.write(date +'\n')
+            f.write(email +'\n' )
     print(name)
     # здесь вы можете сохранить данные или отправить их по электронной почте
     return render_template('form_result.html', 
@@ -73,3 +78,4 @@ def submit_form():
 
 
 app.run(debug=True)
+
